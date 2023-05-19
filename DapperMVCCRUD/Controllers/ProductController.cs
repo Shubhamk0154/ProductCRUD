@@ -8,13 +8,32 @@ using System.Web.Mvc;
 
 namespace DapperMVCCRUD.Controllers
 {
-    public class EmployeeController : Controller
+    public class ProductController : Controller
     {
+
+        //GET:/Product/
+        public ActionResult Index()
+        {
+            return View(DapperORM.ReturnList<ProductModel>("ProductViewAll"));
+        }
+
+        [HttpGet]
+        public ActionResult AddOrEdit(int id = 0)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddOrEdit(ProductModel prod)
+        {
+            return View();
+        }
+        /*
         //
         // GET: /Employee/
         public ActionResult Index()
         {
-            return View(DapperORM.ReturnList<EmployeeModel>("EmployeeViewAll"));
+            return View(DapperORM.ReturnList<ProductModel>("EmployeeViewAll"));
         }
 
 
@@ -29,12 +48,12 @@ namespace DapperMVCCRUD.Controllers
             {
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@EmployeeID",id);
-                return View(DapperORM.ReturnList<EmployeeModel>("EmployeeViewByID",param).FirstOrDefault<EmployeeModel>());
+                return View(DapperORM.ReturnList<ProductModel>("EmployeeViewByID",param).FirstOrDefault<ProductModel>());
             }
         }
 
         [HttpPost]
-        public ActionResult AddOrEdit(EmployeeModel emp)
+        public ActionResult AddOrEdit(ProductModel emp)
         {
             DynamicParameters param = new DynamicParameters();
             param.Add("@EmployeeID", emp.EmployeeID);
@@ -54,5 +73,6 @@ namespace DapperMVCCRUD.Controllers
             return RedirectToAction("Index");
         }
 
+    }*/
     }
 }

@@ -20,7 +20,7 @@ namespace DapperMVCCRUD.Models
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                sqlCon.Execute(procedureName, param, commandType: CommandType.StoredProcedure);
+                sqlCon.Execute(procedureName,param, commandType: CommandType.StoredProcedure);
             }
         
         }

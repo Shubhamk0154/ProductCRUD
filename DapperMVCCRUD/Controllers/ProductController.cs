@@ -17,6 +17,9 @@ namespace DapperMVCCRUD.Controllers
             return View(DapperORM.ReturnList<ProductModel>("ProductViewAll"));
         }
 
+
+        //      ..../Product/AddOrEdit    -- Insert
+        //      ..../Product/AddOrEdit/id  --  update
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
         {
@@ -26,7 +29,14 @@ namespace DapperMVCCRUD.Controllers
         [HttpPost]
         public ActionResult AddOrEdit(ProductModel prod)
         {
-            return View();
+            DynamicParameters param = new DynamicParameters();
+            param.Add("@ProducctId", prod.ProductId);
+            param.Add("@ProducctName", prod.ProductName);
+            param.Add("@ProducctPrice", prod.ProductPrice);
+
+            DapperORM.ExecuteWithoutReturn("ProductAddOrEdit", param);
+
+            return RedirectToAction("Employee List");
         }
         /*
         //

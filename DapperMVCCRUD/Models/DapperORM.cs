@@ -12,7 +12,7 @@ namespace DapperMVCCRUD.Models
 {
     public static class DapperORM
     {
-        private static string connectionString = @"Data Source=DESKTOP-KR4AMA0\SQLEXPRESS;Initial Catalog=DapperDB;Integrated Security=True;";
+        private static string connectionString = @"Data Source=DESKTOP-KR4AMA0\SQLEXPRESS;Initial Catalog=MVCDapperDB;Integrated Security=True;";
 
 
         public static void ExecuteWithoutReturn(string procedureName, DynamicParameters param = null)
